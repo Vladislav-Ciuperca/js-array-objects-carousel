@@ -40,4 +40,45 @@ const slides = document.querySelectorAll(".slide")
 
 slides[1].classList.add("active")
 
+// console.log(slides)
 
+dx.addEventListener("click", () => {
+    // placeholder
+    for (let i = 0; i < slides.length; i++) {
+        const slide = slides[i];
+        console.log(slide, i);
+
+        if (slide.classList.contains("active")) {
+            slide.classList.remove("active");
+            iaa = i;
+            console.log("ho rimosso", i)
+
+        }
+    }
+    if (iaa + 1 == slides.length) {
+        slides[0].classList.add("active")
+    }
+    else {
+        slides[iaa + 1].classList.add("active");
+    }
+})
+
+
+sx.addEventListener("click", () => {
+    for (let i = 0; i < slides.length; i++) {
+        const slide = slides[i];
+        console.log(slide, i);
+        if (slide.classList.contains("active")) {
+            slide.classList.remove("active");
+            iaa = i;
+            console.log("ho rimosso", i)
+        }
+    }
+
+    if (iaa == 0) {
+        slides[slides.length - 1].classList.add("active")
+    }
+    else {
+        slides[iaa - 1].classList.add("active");
+    }
+})
