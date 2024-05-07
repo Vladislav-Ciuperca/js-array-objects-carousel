@@ -1,7 +1,7 @@
 const images = [
     {
         image: 'img/01.webp',
-        title: 'Marvel\'s Spiderman Miles Morale',
+        title: 'Marvel\'s Spiderman Miles Morales',
         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
     }, {
         image: 'img/02.webp',
@@ -22,40 +22,49 @@ const images = [
     }
 ];
 
-// richiamo il container delle slide
+// richiamo il container delle slide, thumbnails e della descrizione
 const container = document.getElementById("container")
 const thumbnails = document.getElementById("thumbnails")
+const description = document.getElementById("desc")
 // richiamo i bottodi "dx" e "sx"
 const sx = document.getElementById("sx")
 const dx = document.getElementById("dx")
 
-// stampo le immagin in pagina insieme alla classe "active"
+// stampo le immagin,le thumb e le descrizioni in pagina
 for (const immagine of images) {
-    // console.log(immagine.title)
-    container.innerHTML = container.innerHTML + `<img class="slide" src="${immagine.image}">`
-    thumbnails.innerHTML = thumbnails.innerHTML + `<img class="thumbnail" src="${immagine.image}">`
+    container.innerHTML = container.innerHTML + ` <img class="slide" src="${immagine.image}">`
+    thumbnails.innerHTML = thumbnails.innerHTML + ` <img class="thumbnail" src="${immagine.image}">`
+    description.innerHTML = description.innerHTML + ` <p class="title">${immagine.title}</p> `
+    description.innerHTML = description.innerHTML + ` <p class="text">${immagine.text}</p> `
 }
 
 
 // mi vado a pescare tutte le immagini stampoate in pagina
 const slides = document.querySelectorAll(".slide")
 const thumbs = document.querySelectorAll(".thumbnail")
+const titles = document.querySelectorAll(".title")
+const texts = document.querySelectorAll(".text")
 
+// aggioungo la classe active alla prima immagine e descrizione in lista
 slides[0].classList.add("active")
 thumbs[0].classList.add("active")
+titles[0].classList.add("active")
+texts[0].classList.add("active")
 
-// console.log(slides)
 
+//quando clicco su DX
 dx.addEventListener("click", () => {
-    // placeholder
     for (let i = 0; i < slides.length; i++) {
         const slide = slides[i];
         const thumb = thumbs[i];
-        console.log(slide, i);
+        const title = titles[i];
+        const text = texts[i];
 
         if (slide.classList.contains("active")) {
             slide.classList.remove("active");
             thumb.classList.remove("active");
+            title.classList.remove("active");
+            text.classList.remove("active");
             iaa = i;
             console.log("ho rimosso", i)
 
@@ -64,24 +73,33 @@ dx.addEventListener("click", () => {
     if (iaa + 1 == slides.length) {
         slides[0].classList.add("active")
         thumbs[0].classList.add("active")
+        titles[0].classList.add("active")
+        texts[0].classList.add("active")
     }
     else {
         slides[iaa + 1].classList.add("active");
         thumbs[iaa + 1].classList.add("active");
+        titles[iaa + 1].classList.add("active");
+        texts[iaa + 1].classList.add("active");
     }
 
 
 })
 
-
+//quandoi clicco su SX
 sx.addEventListener("click", () => {
     for (let i = 0; i < slides.length; i++) {
         const slide = slides[i];
         const thumb = thumbs[i];
-        console.log(slide, i);
+        const title = titles[i];
+        const text = texts[i];
+
+
         if (slide.classList.contains("active")) {
             slide.classList.remove("active");
             thumb.classList.remove("active");
+            title.classList.remove("active");
+            text.classList.remove("active");
             iaa = i;
             console.log("ho rimosso", i)
         }
@@ -90,9 +108,13 @@ sx.addEventListener("click", () => {
     if (iaa == 0) {
         slides[slides.length - 1].classList.add("active")
         thumbs[slides.length - 1].classList.add("active")
+        titles[slides.length - 1].classList.add("active")
+        texts[slides.length - 1].classList.add("active")
     }
     else {
         slides[iaa - 1].classList.add("active");
         thumbs[iaa - 1].classList.add("active");
+        titles[iaa - 1].classList.add("active");
+        texts[iaa - 1].classList.add("active");
     }
 })
