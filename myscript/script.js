@@ -21,3 +21,23 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+// richiamo il container delle slide
+const container = document.getElementById("container")
+// richiamo i bottodi "dx" e "sx"
+const sx = document.getElementById("sx")
+const dx = document.getElementById("dx")
+
+// stampo le immagin in pagina insieme alla classe "active"
+for (const immagine of images) {
+    // console.log(immagine.title)
+    container.innerHTML = container.innerHTML + `<img class="slide" src="${immagine.image}">`
+}
+
+
+// mi vado a pescare tutte le immagini stampoate in pagina
+const slides = document.querySelectorAll(".slide")
+
+slides[1].classList.add("active")
+
+
