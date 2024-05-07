@@ -24,6 +24,7 @@ const images = [
 
 // richiamo il container delle slide
 const container = document.getElementById("container")
+const thumbnails = document.getElementById("thumbnails")
 // richiamo i bottodi "dx" e "sx"
 const sx = document.getElementById("sx")
 const dx = document.getElementById("dx")
@@ -32,6 +33,7 @@ const dx = document.getElementById("dx")
 for (const immagine of images) {
     // console.log(immagine.title)
     container.innerHTML = container.innerHTML + `<img class="slide" src="${immagine.image}">`
+    thumbnails.innerHTML = thumbnails.innerHTML + `<img class="thumbnail" src="${immagine.image}">`
 }
 
 
@@ -39,8 +41,8 @@ for (const immagine of images) {
 const slides = document.querySelectorAll(".slide")
 const thumbs = document.querySelectorAll(".thumbnail")
 
-slides[1].classList.add("active")
-thumbs[1].classList.add("active")
+slides[0].classList.add("active")
+thumbs[0].classList.add("active")
 
 // console.log(slides)
 
