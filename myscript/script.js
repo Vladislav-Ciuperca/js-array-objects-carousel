@@ -26,6 +26,7 @@ const images = [
 const container = document.getElementById("container")
 const thumbnails = document.getElementById("thumbnails")
 const description = document.getElementById("desc")
+
 // richiamo i bottodi "dx" e "sx"
 const sx = document.getElementById("sx")
 const dx = document.getElementById("dx")
@@ -55,6 +56,7 @@ texts[0].classList.add("active")
 //quando clicco su DX
 dx.addEventListener("click", () => {
     for (let i = 0; i < slides.length; i++) {
+        // conto dentro quest elementi
         const slide = slides[i];
         const thumb = thumbs[i];
         const title = titles[i];
@@ -89,6 +91,7 @@ dx.addEventListener("click", () => {
 //quandoi clicco su SX
 sx.addEventListener("click", () => {
     for (let i = 0; i < slides.length; i++) {
+        // conto dentro quest elementi
         const slide = slides[i];
         const thumb = thumbs[i];
         const title = titles[i];
