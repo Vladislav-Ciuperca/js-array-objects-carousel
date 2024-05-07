@@ -37,8 +37,10 @@ for (const immagine of images) {
 
 // mi vado a pescare tutte le immagini stampoate in pagina
 const slides = document.querySelectorAll(".slide")
+const thumbs = document.querySelectorAll(".thumbnail")
 
 slides[1].classList.add("active")
+thumbs[1].classList.add("active")
 
 // console.log(slides)
 
@@ -46,10 +48,12 @@ dx.addEventListener("click", () => {
     // placeholder
     for (let i = 0; i < slides.length; i++) {
         const slide = slides[i];
+        const thumb = thumbs[i];
         console.log(slide, i);
 
         if (slide.classList.contains("active")) {
             slide.classList.remove("active");
+            thumb.classList.remove("active");
             iaa = i;
             console.log("ho rimosso", i)
 
@@ -57,19 +61,25 @@ dx.addEventListener("click", () => {
     }
     if (iaa + 1 == slides.length) {
         slides[0].classList.add("active")
+        thumbs[0].classList.add("active")
     }
     else {
         slides[iaa + 1].classList.add("active");
+        thumbs[iaa + 1].classList.add("active");
     }
+
+
 })
 
 
 sx.addEventListener("click", () => {
     for (let i = 0; i < slides.length; i++) {
         const slide = slides[i];
+        const thumb = thumbs[i];
         console.log(slide, i);
         if (slide.classList.contains("active")) {
             slide.classList.remove("active");
+            thumb.classList.remove("active");
             iaa = i;
             console.log("ho rimosso", i)
         }
@@ -77,8 +87,10 @@ sx.addEventListener("click", () => {
 
     if (iaa == 0) {
         slides[slides.length - 1].classList.add("active")
+        thumbs[slides.length - 1].classList.add("active")
     }
     else {
         slides[iaa - 1].classList.add("active");
+        thumbs[iaa - 1].classList.add("active");
     }
 })

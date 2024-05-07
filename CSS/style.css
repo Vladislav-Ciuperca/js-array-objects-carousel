@@ -1,5 +1,14 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     padding: 15rem;
+}
+
+.row {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +35,20 @@ button {
     display: none;
 }
 
+
+#thumbnails {
+    border: 2px dashed purple;
+    width: 50rem;
+}
+
+.thumbnail {
+    object-fit: cover;
+    width: calc(100% / 5 - 4px);
+    height: 7rem;
+    filter: brightness(20%);
+}
+
 .active {
-    display: block;
-    /* filter: brightness(100%); */
+    display: inline-block;
+    filter: brightness(100%);
 }
